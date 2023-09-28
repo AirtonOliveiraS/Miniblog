@@ -1,109 +1,244 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import styles from "./Register.module.css";
-import { useAuthentication } from "../../hooks/useAuthentication";
+
 
 
 const Register = () => {
 
   const [displayName, setDisplayName] = useState("")
+  const [sobrenome, setSobrenome] = useState("")
   const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [confirmPassword, setConfirmPassword] = useState("")
+  const [datanascimento, setdatanascimento] = useState("")
+  const [genero, setGenero] = useState("")
+  const [cpf, setCpf] = useState("") 
+  const [rgrne, setRG] = useState("")
+  const [unidade, setUnidade] = useState("")
+  const [tipo, setTipo] = useState("")
+  const [anoIngresso, setAnoIngresso] = useState("")
+  const [anoEgresso, setAnoEgresso] = useState("")
+  
   const [error, setError] = useState("")
 
-  const { createUser, error: authError, loading } = useAuthentication();
 
-  const handleSubmit =async (e) => {
+
+ 
+
+  //const { createUser, error: authError, loading } = useAuthentication();
+  const allFormRef = useRef(null);
+
+
+  const handleScrollToForm = () => {
+    allFormRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+  
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
-    setError("")
+    
 
     const user = {
-      displayName,
-      email,
-      password
-    }
+      displayName, sobrenome, email, datanascimento, genero,  cpf,
+      rgrne,unidade,tipo,anoEgresso,anoIngresso
+      
+    }    
 
-    if(password !== confirmPassword){
-      setError("As senhas precisam ser iguais")
-      return
-    }
-
-    const res = await createUser(user)
+    //const res = await createUser(user)
     console.log(user)
   };
 
-  useEffect(() => {
-    if (authError) {
-      setError(authError);
-    }
-  }, [authError]);
-
+  
   return (
+
+
     <div className={styles.register}>
-      <h1>Cadastre-se para postar</h1>
-      <p>Crie seu usuário e compartilhe suas histórias</p>
-      <form onSubmit={handleSubmit}>
-        <label>
-          <span>Nome: </span>
-          <input
-            type='text'
-            name='displayName'
-            required
-            placeholder='Nome do usuario'
-            value={displayName}
-            onChange={(e) => setDisplayName(e.target.value)}
-          >
+      <div className={styles.space}></div>
+      <div class={styles.imgformatura}>
+      <img src='formatura.png' alt="Logo" />
+        <div class={styles.text}>
+          <h1>Estamos construindo o Portal de Egressos da UNIFESP</h1>
+          <h3>O primeiro passo é se cadastrar na plataforma:</h3>
+          <button class={styles.textbtn} onClick={handleScrollToForm}>Cadastre-se aqui</button>
+        </div>
+      </div>
+      <div className={styles.ferramentas}>
+        <h1>Futuras Ferramentas e Vantagens</h1>
+        <div className={styles.ferramentaslist}>
+          <div className={styles.icons}>
 
-          </input>
-        </label>
-        <label>
-          <span>E-mail: </span>
-          <input
-            type='email'
-            name='email'
-            required
-            placeholder='E-mail do usuario'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            <img src="icon1.png" alt="Ícone 1" />
 
-          ></input>
-        </label>
-        <label>
-          <span>Senha: </span>
-          <input
-            type='password'
-            name='password'
-            required
-            placeholder='Insira Sua Senha'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          ></input>
-        </label>
-        <label>
-          <span>Confirmação de Senha: </span>
-          <input
-            type='password'
-            name='ConfirmPassword'
-            required
-            placeholder='Confirmar  Senha'
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            <p>Tudo em um só lugar</p>
+          </div>
+          <div className={styles.icons}>
 
-          ></input>
-        </label>
+            <img src="icon2.png" alt="Ícone 2" />
 
-        {!loading && <button className="btn">Cadastrar</button>}
-        {loading && (
-          <button className="btn" disabled>
-            Aguarde...
-          </button>
-        )}
-        {error && <p className="error">{error}</p>}
+            <p>Oportunidades de Emprego</p>
+          </div>
+          <div className={styles.icons}>
 
+            <img src="icon3.png" alt="Ícone 3" />
 
-      </form>
+            <p>Acesso a biblioteca</p>
+          </div>
+          <div className={styles.icons}>
+
+            <img src="icon4.png" alt="Ícone 4" />
+
+            <p>Atualizações</p>
+          </div>
+          <div className={styles.icons}>
+
+            <img src="icon5.png" alt="Ícone 5" />
+
+            <p>Encontre colegas de turma</p>
+          </div>
+        </div>
+        <p>E muito mais...</p>
+      </div>
+
+      <div className={styles.allform} ref={allFormRef}>
+        <h1>Cadastro</h1>
+        <p>Crie seu usuário para prosseguir</p>
+        <form onSubmit={handleSubmit}>
+          <label>
+            <span>Nome: </span>
+            <input
+              type='text'
+              name='displayName'
+              required
+              placeholder='Nome do usuário'
+              value={displayName}
+              onChange={(e) => setDisplayName(e.target.value)}
+            />
+          </label>
+          <label>
+            <span>Sobrenome: </span>
+            <input
+              type='text'
+              name='displayName'
+              required
+              placeholder='Sobrenome'
+              value={sobrenome}
+              onChange={(e) => setSobrenome(e.target.value)}
+            />
+          </label>
+          <label>
+            <span>E-mail Institucional: </span>
+            <input
+              type='email'
+              name='email'
+              required
+              placeholder='E-mail do usuário'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </label>
+
+          <label>
+            <span>Data de Nascimento: </span>
+            <input
+              type='text'
+              name='data'
+              required
+              placeholder='Data de Nascimento'
+              value={datanascimento}
+              onChange={(e) => setdatanascimento(e.target.value)}
+            />
+          </label>
+
+          <label>
+            <span>Gênero: </span>
+            <input
+              type='text'
+              name='text'
+              required
+              placeholder='Gênero'
+              value={genero}
+              onChange={(e) => setGenero(e.target.value)}
+            />
+          </label>
+          <label>
+            <span>CPF: </span>
+            <input
+              type='number'
+              name='number'
+              required
+              placeholder='CPF'
+              value={cpf}
+              onChange={(e) => setCpf(e.target.value)}
+            />
+          </label>
+          <label>
+            <span>RG ou RNE: </span>
+            <input
+              type='number'
+              name='number'
+              required
+              placeholder='RG ou RNE'
+              value={rgrne}
+              onChange={(e) => setRG(e.target.value)}
+            />
+          </label>
+
+          <h3>Qual foi sua ultima formação na UNIFESP?</h3>
+
+          <label>
+            <span>Unidade: </span>
+            <input
+              type='text'
+              name='text'
+              required
+              placeholder=''
+              value={unidade}
+              onChange={(e) => setUnidade(e.target.value)}
+            />
+          </label>
+
+          <label>
+            <span>Tipo: </span>
+            <input
+              type='text'
+              name='text'
+              required
+              placeholder=''
+              value={tipo}
+              onChange={(e) => setTipo(e.target.value)}
+            />
+          </label>
+
+          <label>
+            <span>Ano de Ingresso: </span>
+            <input
+              type='number'
+              name='number'
+              required
+              placeholder=''
+              value={anoIngresso}
+              onChange={(e) => setAnoIngresso(e.target.value)}
+            />
+          </label>
+
+          <label>
+            <span>Ano de Egresso: </span>
+            <input
+              type='number'
+              name='number'
+              required
+              placeholder=''
+              value={anoEgresso}
+              onChange={(e) => setAnoEgresso(e.target.value)}
+            />
+          </label>
+         <button className="btn" >Cadastrar</button>
+          {/* {loading && (
+            <button className="btn" disabled>
+              Aguarde...
+            </button>
+          )}  */}
+          {error && <p className="error">{error}</p>}
+        </form></div>
     </div>
   )
 }

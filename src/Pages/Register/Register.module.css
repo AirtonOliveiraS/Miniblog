@@ -1,7 +1,226 @@
 .register {
-    text-align: center;
-  }
+  text-align: center;
+  color: #ffffff; /* Adicionei a cor do texto para melhorar a legibilidade */
+  padding-top: 23px;
+  background-color: #215A36;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 20px
   
-  .register p {
-    color: #aaa;
-  }
+}
+
+.allform {
+  background-color: #103a1f;
+  width: 50%;
+  margin: 20px auto 0; /* Isso centraliza a div horizontalmente */
+  text-align: left;
+  text-align: center; /* Centraliza o conteúdo da div horizontalmente */
+  padding-bottom: 20px ;
+  display: flex;
+  flex-direction: column; /* Alinha verticalmente os elementos */
+    
+}
+
+.allform label {
+ 
+ 
+  align-items:center;
+  margin-bottom: 10px;
+  display: block; /* Define cada label como um bloco separado */
+  margin-bottom: 10px; /* Adiciona espaçamento inferior entre os labels */
+}
+
+.allform label span {
+  color: #000000;
+  display: inline-block;
+  width: 120px; /* Ajuste a largura conforme necessário */
+  font-weight: bold;
+  vertical-align: top; /* Alinha o topo do span com o topo do input */
+  margin-right: 10px; /* Espaçamento à direita do span (opcional) */
+  display: inline-block;
+ 
+  
+  
+}
+.allform label input {
+  flex: 1; /* Isso faz com que o input ocupe todo o espaço disponível */
+  height: 30px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  padding: 5px;
+}
+
+.allform.allform h3 {
+  white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+}
+.allform.allform h1 {
+  font-size:30px; /* Impede que o texto quebre em várias linhas */
+}
+
+.space{
+  background-color: #ffffff;
+  width:100%;
+  height: 10px;
+  margin-left: none;
+  
+}
+.ferramentas{
+  background-color: #ffffff;
+  width:100%;
+  height: 300px;
+  margin-left: none;
+  margin-top: 0;
+  padding-top: 10px; /* Adicione um espaço superior de 20 pixels */
+  
+  
+}
+
+.ferramentaslist{
+  display: flex;
+  margin-left:20px;
+  justify-content: space-between;
+  align-items: center; /* Centralize horizontalmente */
+  padding-top: 15px;
+ 
+}
+
+.ferramentas h1{
+  color: #215A36;
+  text-align: left; /* Alinha o texto à esquerda */
+  margin-left: 10px;
+  margin-top:10px;
+
+}
+
+.ferramentas p{
+  color: #8ea496;
+  text-align: center; /* Alinha o texto à esquerda */ 
+  padding-top:40px;
+
+}
+
+
+
+
+
+
+
+
+
+
+.allform input {
+  width: 50%;
+  height: 30px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #ccc; /* Adiciona uma borda ao input (opcional) */
+  border-radius: 15px;
+  padding: 5px; /* Adiciona um preenchimento interno ao input (opcional) */
+}
+
+.allform input::placeholder {
+  text-align:center;
+}
+
+.register h3 {
+  text-decoration: underline; /* Adiciona sublinhado ao texto do h3 */
+  font-size: 18px; /* Tamanho da fonte do h3 (ajuste conforme necessário) */
+ 
+}
+
+.allform button{
+ 
+    background-color: #215A36;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 140px;
+    font-weight: bold;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente o botão */
+    margin-left: 120px;
+    margin-bottom: 20px;
+   
+  
+}
+
+.register img{
+  width: 100vw;
+  height: 430px;
+  top: 213px;
+  margin-bottom: 0;
+  background-color: #fff;
+}
+
+.ferramentlist.icons {
+  background-color: #215A36;
+  width: 10px; /* Defina o tamanho da div de ícone conforme necessário */
+  height: 10px; /* Defina o tamanho da div de ícone conforme necessário */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%; /* Torna a div de ícone arredondada */
+  margin-bottom: 40px
+}
+
+.icons img {
+  width: 70px; /* Defina o tamanho desejado para o ícone */
+  height: 40px; /* Defina o tamanho desejado para o ícone */
+  border-radius: 50%; /* Torna a imagem arredondada */
+  margin-right: 50px; /* Adicione espaço à direita da imagem */
+}
+.icons p{
+  margin-left: 10px;
+}
+
+.imgformatura {
+  position: relative;
+  width: 100%;
+  height: auto; /* Ajuste a altura conforme necessário */
+  background-image: url('/public/formatura.png'); /* Define a imagem como plano de fundo */
+  background-size: cover; /* Ajusta o dimensionamento da imagem de fundo */
+  background-repeat: no-repeat; /* Evita a repetição da imagem de fundo */
+  margin-bottom: 20px;
+}
+
+.text h1{
+  position: absolute;
+  white-space: nowrap;
+  top: 50%;
+  left: 10%; /* Defina o valor desejado para ajustar à esquerda */
+  transform: translateY(-50%);
+  text-align: left;  
+  background-color: rgba(44, 107, 64, 0.6);
+}
+.text h3{
+  text-align:left;
+}
+
+.text h1, h3, .botao {
+  color: #ffffff; /* Define a cor do texto para branco */
+}
+
+.textbtn{
+  background-color: #d0dbd4;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 200px;
+  font-weight: bold;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1em;
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente o botão */
+  margin-left: 120px;
+  margin-bottom: 20px;
+}
+
+.button:hover {
+  background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
+}
